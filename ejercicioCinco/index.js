@@ -50,7 +50,7 @@ app.post('/ejercicioseis', urlEnc, (req, res) => {
     })
     .then(obj => {
         console.log(obj);
-        res.send(`Objeto cargado exitosamente! ${obj}`);
+        res.send(`Objeto cargado exitosamente!`);
     })
     .catch(err => {
         console.log('ERROR');

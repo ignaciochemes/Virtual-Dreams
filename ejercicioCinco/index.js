@@ -46,7 +46,7 @@ app.post('/ejercicioseis', urlEnc, (req, res) => {
     axios.post('https://reclutamiento-14cf7.firebaseio.com/personas.json', {
         nombre: nombre,
         apellido: apellido,
-        dni: dni
+        dni: parseInt(dni, 10)
     })
     .then(obj => {
         console.log(obj);
@@ -55,7 +55,7 @@ app.post('/ejercicioseis', urlEnc, (req, res) => {
     .catch(err => {
         console.log('ERROR');
         res.send('ERROR');
-    }) 
+    })
 });
 
 

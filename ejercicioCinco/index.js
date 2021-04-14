@@ -2,9 +2,15 @@ const express = require('express');
 const axios = require('axios');
 const path = require('path');
 
+//Middleware
+const bodyParser = require('body-parser');
+
 //Inicio de aplicacion
 const app = express();
 const port = process.env.PORT || 3000;
+
+//Opciones
+const urlEnc = bodyParser.urlencoded({extended: false})
 
 app.get('/', (req, res) => {
     res.send('HOLA A TODOS!');
@@ -35,11 +41,12 @@ app.get('/ejercicioseis', (req, res) => {
 });
 
 //Enviar los datos del formulario por metodo POST a la base de datos
-app.post('/ejercicioseis', (req, res) => {
+app.post('/ejercicioseis', urlEnc, (req, res) => {
+    const { nombre, apellido, dni } = req.body;
     axios.post('https://reclutamiento-14cf7.firebaseio.com/personas.json', {
-        nombre: "Ignacio",
-        apellido: "Gonzalez",
-        dni: 39632073
+        nombre: nombre,
+        apellido: apellido,
+        dni: dni
     })
     .then(obj => {
         console.log(obj);

@@ -46,7 +46,7 @@ app.post('/ejercicioseis', urlEnc, (req, res) => {
     axios.post('https://reclutamiento-14cf7.firebaseio.com/personas.json', {
         nombre: nombre,
         apellido: apellido,
-        dni: parseInt(dni, 10)
+        dni: parseInt(dni, 10) //Update del parametro DNI a parseInt() (Convierto string a numero);
     })
     .then(obj => {
         console.log(obj);

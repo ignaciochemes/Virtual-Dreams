@@ -4,7 +4,6 @@ const path = require('path');
 
 //Middleware
 const bodyParser = require('body-parser');
-const { stat } = require('fs');
 
 //Inicio de aplicacion
 const app = express();
